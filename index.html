@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orlando Lopez — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name — Software Engineer specializing in web applications, systems design, and user-centric experiences." />
+
+  <!-- Favicons (update these with your actual icons) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="resources/svg/user-tie.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Orlando Lopez - Portfolio" />
+  <meta property="og:description" content="Selected projects, experience, and contact information." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://your-domain.example/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="resources/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Orlando Lopez</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Toggle theme">
+          <span id="theme-icon" aria-hidden="true">🌗</span>
+        </button>
+        <button id="menu-toggle" class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="menu-panel" role="menu" aria-label="Mobile">
+      <div class="container mobile-hud">
+        <a role="menuitem" href="#about">About</a>
+        <a role="menuitem" href="#skills">Skills</a>
+        <a role="menuitem" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Web Developer</p>
+          <h1 class="title">Hi, I'm Orlando Lopez. <br>I build reliable, user‑centric web experiences.</h1>
+          <p class="lead">I specialize in front-end architectures, resilient APIs, and delightful product experiences. I enjoy turning complex problems into elegant, scalable solutions.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+        <div aria-hidden="true" class="about-blob">
+          <!-- Replace src with your headshot -->
+          <img class="avatar" src="resources/image/image.jpg" alt="ORWE">
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container about">
+        <div>
+          <div class="section-hd">
+            <h2>About</h2>
+          </div>
+          <p class="muted">I’m a Collage Student, That enjoy coding and hav</p>
+          <p class="muted">Currently focusing on Python, JavaScript, and C#</p>
+          <div class="cta" style="margin-top: var(--space-5);">
+            <a class="btn" href="mailto:orlandolopezlpn@gmail.com">Email</a>
+            <a class="btn" href="https://github.com/yourorly" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <strong>Highlights</strong>
+              <ul class="muted" style="list-style: disc; padding-left: 1rem;">
+                <li>Made a POS System for <a href="https://www.facebook.com/groups/3763277413907101" target="_blank" rel="noopener">E&E Lopez Agrivet Supply</a> Leyte</li>
+                <li>Leading Technical Team in STI Bacoor - Technobytes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card" style="margin-top: var(--space-4);">
+            <div class="card-body">
+              <strong>Toolbox</strong>
+              <div class="tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">Python</span>
+                <span class="tag">Node</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">C#</span>
+                <span class="tag">Json</span>
+                <span class="tag">Visual Studio</span>
+                <span class="tag">Visual Studio Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Skills</h2>
+          <p class="muted">Core competencies and tooling</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-body">
+              <strong>Frontend</strong>
+              <p class="muted">Bootstrap, React.js, JavaScript, CSS, Accessibility</p>
+              <div class="tags">
+                <span class="tag">Bootstrap</span><span class="tag">React.js</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <strong>Backend</strong>
+              <p class="muted">Node, MariaDB</p>
+              <div class="tags">
+                <span class="tag">Node</span><span class="tag">MariaDB</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <strong>DevOps</strong>
+              <p class="muted">Docker, Cloud, Monitoring</p>
+              <div class="tags">
+                <span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Contact</h2>
+          <p class="muted">Let’s build something great</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <div class="card-body">
+              <strong>Reach me</strong>
+              <p class="muted">orlandolopezlpn@gmail.com</p>
+              <div class="tags">
+                <a class="tag" href="mailto:orlandolopezlpn@gmail.com">Email</a>
+                <a class="tag" href="https://github.com/yourorly" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <form class="card" action="https://formspree.io/f/mwpnzoeo" method="POST">
+            <div class="card-body">
+              <strong>Send a message</strong>
+              <label class="muted" for="name">Name</label>
+              <input class="input" id="name" name="name" type="text" placeholder="Your Name" required>
+
+              <label class="muted" for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required>
+
+              <label class="muted" for="message">Message</label>
+              <textarea class="input" id="message" name="message" placeholder="How can I help?" required></textarea>
+
+              <button class="btn btn-primary" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <p>&copy; <span id="year"></span> Orlando Lopez. All rights reserved.</p>
+      <div style="display:flex; gap:12px;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Structured data (update values) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "url": "https://your-domain.example/",
+    "sameAs": [
+      "https://github.com/yourorly"
+    ],
+    "jobTitle": "Web Developer"
+  }
+  </script>
+
+  <script src="resources/scripts/main.js"></script>
+</body>
+</html>
