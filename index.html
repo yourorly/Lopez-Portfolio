@@ -1,158 +1,172 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="system">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <title>Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Orlando Lopez — Portfolio</title>
-  <meta name="description" content="Portfolio of Your Name — Software Engineer specializing in web applications, systems design, and user-centric experiences." />
-
-  <!-- Favicons (update these with your actual icons) -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="resources/svg/user-tie.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Orlando Lopez - Portfolio" />
-  <meta property="og:description" content="Selected projects, experience, and contact information." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://your-domain.example/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link rel="stylesheet" href="resources/css/main.css">
+  <link rel="shortcut icon" href="assets/icon/heart-solid.svg" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-nav" data-open="false" role="banner">
+    <div class="container nav-inner">
+      <a class="brand" href="#main-context" aria-label="Home">Portfolio</a>
 
-  <header>
-    <div class="container nav" role="navigation" aria-label="Primary">
-      <div class="brand">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span>Orlando Lopez</span>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#experience">Experience</a>
+        <a class="btn btn-primary" href="#contact">Contact</a>
       </nav>
 
-      <div class="nav-actions">
-        <button id="theme-toggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Toggle theme">
-          <span id="theme-icon" aria-hidden="true">🌗</span>
-        </button>
-        <button id="menu-toggle" class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
-          ☰
-        </button>
-      </div>
-    </div>
-
-    <div id="mobile-menu" class="menu-panel" role="menu" aria-label="Mobile">
-      <div class="container mobile-hud">
-        <a role="menuitem" href="#about">About</a>
-        <a role="menuitem" href="#skills">Skills</a>
-        <a role="menuitem" href="#contact">Contact</a>
-      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="bar">≡</span>
+      </button>
     </div>
   </header>
+    <div class="main-content" id="main-context">
+        <div class="stage" aria-label="Elastic hanging ID badge demo">
+            
+            <div class="anchor" id="anchor">
+            <div class="pin" id="pin" aria-hidden="true"></div>
 
-  <main id="main-content">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Web Developer</p>
-          <h1 class="title">Hi, I'm Orlando Lopez. <br>I build reliable, user‑centric web experiences.</h1>
-          <p class="lead">I specialize in front-end architectures, resilient APIs, and delightful product experiences. I enjoy turning complex problems into elegant, scalable solutions.</p>
-          <div class="cta">
-            <a class="btn btn-primary" href="/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-            <a class="btn" href="#contact">Get in Touch</a>
-          </div>
-        </div>
-        <div aria-hidden="true" class="about-blob">
-          <!-- Replace src with your headshot -->
-          <img class="avatar" src="resources/image/image.jpg" alt="ORWE">
-        </div>
-      </div>
-    </section>
+            <!-- Two laces (drawn dynamically in JS) -->
+            <div class="cord" id="cord-left" aria-hidden="true"></div>
+            <div class="cord" id="cord-right" aria-hidden="true"></div>
 
+            <div class="rig">
+                <div class="hanger" id="hanger" style="--angle: 0deg; --current-length: var(--string-length);">
+                <!-- Old single string hidden via CSS -->
+                <div class="string" aria-hidden="true"></div>
+
+                <div id="id-badge" class="badge" role="img" aria-label="ID badge hanging from a fixed pin">
+                    <div class="badge-content">
+                    <!-- Invisible attachment points for the two laces -->
+                    <div class="attach attach-left"></div>
+                    <div class="attach attach-right"></div>
+
+                    <div class="photo" aria-hidden="true" style="background-image: url('assets/images/image.jpg');"></div>
+                    <div class="details">
+                        <div class="name">ORWEEEE</div>
+                        <div class="role">Creator</div>
+                        <div class="id-number">ID: 123456</div>
+                    </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            </div>
+            <div class="contents-mid">
+                <h1 class="title">HEWOOOOOOOOO</h1>
+                <div class="cta-row">
+                  <a class="btn btn-primary resume-btn-desktop" href="assets/files/Resume.pdf" download>
+                    Download Resume
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+  <!-- Portfolio sections -->
+  <main id="portfolio-content" aria-label="Portfolio content">
     <!-- About -->
-    <section id="about">
+    <section id="about" aria-labelledby="about-title">
       <div class="container about">
-        <div>
-          <div class="section-hd">
-            <h2>About</h2>
-          </div>
-          <p class="muted">I’m a Collage Student, That enjoy coding and hav</p>
-          <p class="muted">Currently focusing on Python, JavaScript, and C#</p>
-          <div class="cta" style="margin-top: var(--space-5);">
-            <a class="btn" href="mailto:orlandolopezlpn@gmail.com">Email</a>
-            <a class="btn" href="https://github.com/yourorly" target="_blank" rel="noopener">GitHub</a>
-          </div>
+        <div class="section-hd">
+          <h2 id="about-title">About</h2>
+          <p class="muted">A brief introduction</p>
         </div>
-        <div>
+        <div class="about-body">
+          <p class="muted">
+            I’m a developer who enjoys building interactive, user‑centric web experiences.
+            I focus on clean architecture, accessible UI, and performant front‑end motion.
+          </p>
+          <p class="muted">
+            Recent interests include JavaScript animations, CSS art, and integrating physical-feel
+            interactions like this elastic, draggable ID badge.
+          </p>
+        </div>
+
+        <!-- Optional highlights/toolbox cards -->
+        <div class="grid grid-3" style="margin-top: 1.25rem;">
           <div class="card">
             <div class="card-body">
               <strong>Highlights</strong>
-              <ul class="muted" style="list-style: disc; padding-left: 1rem;">
-                <li>Made a POS System for <a href="https://www.facebook.com/groups/3763277413907101" target="_blank" rel="noopener">E&E Lopez Agrivet Supply</a> Leyte</li>
-                <li>Leading Technical Team in STI Bacoor - Technobytes</li>
+              <ul class="muted" style="list-style: disc; padding-left: 1rem; margin: 0.5rem 0 0;">
+                <li>Interactive UI prototypes with physics-based motion</li>
+                <li>Responsive layouts with accessible components</li>
               </ul>
             </div>
           </div>
-          <div class="card" style="margin-top: var(--space-4);">
+          <div class="card">
             <div class="card-body">
               <strong>Toolbox</strong>
-              <div class="tags">
+              <div class="tags" style="margin-top: 0.5rem;">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
                 <span class="tag">JavaScript</span>
-                <span class="tag">Python</span>
-                <span class="tag">Node</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">C#</span>
-                <span class="tag">Json</span>
-                <span class="tag">Visual Studio</span>
-                <span class="tag">Visual Studio Code</span>
+                <span class="tag">Canvas/SVG</span>
+                <span class="tag">Accessibility</span>
               </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <strong>Contact</strong>
+              <p class="muted" style="margin-top: 0.5rem;">
+                Want something like this in your site?
+                <a style="color: var(--primary-contrast);" href="mailto:you@example.com">Email me</a>.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <br><br>
 
     <!-- Skills -->
-    <section id="skills">
+    <section id="skills" aria-labelledby="skills-title">
       <div class="container">
         <div class="section-hd">
-          <h2>Skills</h2>
+          <h2 id="skills-title">Skills</h2>
           <p class="muted">Core competencies and tooling</p>
         </div>
+
         <div class="grid grid-3">
           <div class="card">
             <div class="card-body">
               <strong>Frontend</strong>
-              <p class="muted">Bootstrap, React.js, JavaScript, CSS, Accessibility</p>
+              <p class="muted">HTML, CSS, JavaScript, Accessibility</p>
               <div class="tags">
-                <span class="tag">Bootstrap</span><span class="tag">React.js</span>
+                <span class="tag">Animations</span>
+                <span class="tag">Responsive UI</span>
+                <span class="tag">ARIA</span>
               </div>
             </div>
           </div>
+
           <div class="card">
             <div class="card-body">
               <strong>Backend</strong>
-              <p class="muted">Node, MariaDB</p>
+              <p class="muted">Node fundamentals, simple APIs</p>
               <div class="tags">
-                <span class="tag">Node</span><span class="tag">MariaDB</span>
+                <span class="tag">Node</span>
+                <span class="tag">REST</span>
               </div>
             </div>
           </div>
+
           <div class="card">
             <div class="card-body">
-              <strong>DevOps</strong>
-              <p class="muted">Docker, Cloud, Monitoring</p>
+              <strong>Tools</strong>
+              <p class="muted">Git, VS Code, Design Handoff</p>
               <div class="tags">
-                <span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+                <span class="tag">Git</span>
+                <span class="tag">VS Code</span>
+                <span class="tag">Figma</span>
               </div>
             </div>
           </div>
@@ -160,15 +174,173 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
+    <!-- Projects -->
+    <section id="projects">
       <div class="container">
         <div class="section-hd">
-          <h2>Contact</h2>
+          <h2>Projects</h2>
+          <p class="muted">Selected work and experiments</p>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Project Card 1 -->
+          <article class="card">
+            <img src="https://picsum.photos/800/450?random=1" alt="Screenshot of Project Alpha">
+            <div class="card-body">
+              <h3>Project Alpha</h3>
+              <p class="muted">A performant dashboard for real-time analytics with offline support.</p>
+              <div class="tags">
+                <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">WebSockets</span>
+              </div>
+              <div class="cta">
+                <a class="btn" href="#" target="_blank" rel="noopener">Live</a>
+                <a class="btn" href="#" target="_blank" rel="noopener">Source</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="card">
+            <img src="https://picsum.photos/800/450?random=2" alt="Screenshot of Project Beta">
+            <div class="card-body">
+              <h3>Project Beta</h3>
+              <p class="muted">E-commerce platform with headless CMS and SSR for blazing speeds.</p>
+              <div class="tags">
+                <span class="tag">Next.js</span><span class="tag">SSR</span><span class="tag">Stripe</span>
+              </div>
+              <div class="cta">
+                <a class="btn" href="#" target="_blank" rel="noopener">Live</a>
+                <a class="btn" href="#" target="_blank" rel="noopener">Source</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="card">
+            <img src="https://picsum.photos/800/450?random=3" alt="Screenshot of Project Gamma">
+            <div class="card-body">
+              <h3>Project Gamma</h3>
+              <p class="muted">Automation suite that reduced build times by 40% via smart caching.</p>
+              <div class="tags">
+                <span class="tag">Node</span><span class="tag">CI/CD</span><span class="tag">Caching</span>
+              </div>
+              <div class="cta">
+                <a class="btn" href="#" target="_blank" rel="noopener">Live</a>
+                <a class="btn" href="#" target="_blank" rel="noopener">Source</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+     <!-- Animation Portfolio (Motion Showcase) -->
+    <section id="certificates" class="animation-portfolio">
+      <div class="container">
+        <div class="section-hd" style="align-items: flex-start;">
+          <div>
+            <h2>Certificates</h2>
+            <p class="muted">Awards, Credits, and Appriciation</p>
+          </div>
+          <div class="marquee-controls">
+            <button id="marquee-toggle" class="btn" type="button" aria-pressed="false" aria-label="Pause animation">Pause</button>
+          </div>
+        </div>
+
+        <div class="marquee reveal">
+          <div class="marquee-track">
+            <!-- Replace images with your real thumbnails/logos -->
+            <a class="marquee-item card" href="#" aria-label="Project One">
+              <img src="https://picsum.photos/seed/a/600/360" alt="Project One thumbnail">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Two">
+              <img src="https://picsum.photos/seed/b/600/360" alt="Project Two thumbnail">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Three">
+              <img src="https://picsum.photos/seed/c/600/360" alt="Project Three thumbnail">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Four">
+              <img src="https://picsum.photos/seed/d/600/360" alt="Project Four thumbnail">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Five">
+              <img src="https://picsum.photos/seed/e/600/360" alt="Project Five thumbnail">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Six">
+              <img src="https://picsum.photos/seed/f/600/360" alt="Project Six thumbnail">
+            </a>
+
+            <!-- Duplicated items for seamless loop -->
+            <a class="marquee-item card" href="#" aria-label="Project One duplicate" aria-hidden="true" tabindex="-1">
+              <img src="https://picsum.photos/seed/a/600/360" alt="">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Two duplicate" aria-hidden="true" tabindex="-1">
+              <img src="https://picsum.photos/seed/b/600/360" alt="">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Three duplicate" aria-hidden="true" tabindex="-1">
+              <img src="https://picsum.photos/seed/c/600/360" alt="">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Four duplicate" aria-hidden="true" tabindex="-1">
+              <img src="https://picsum.photos/seed/d/600/360" alt="">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Five duplicate" aria-hidden="true" tabindex="-1">
+              <img src="https://picsum.photos/seed/e/600/360" alt="">
+            </a>
+            <a class="marquee-item card" href="#" aria-label="Project Six duplicate" aria-hidden="true" tabindex="-1">
+              <img src="https://picsum.photos/seed/f/600/360" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Experience</h2>
+          <p class="muted">Roles and responsibilities</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>Senior Software Engineer — Company A</strong>
+              <div class="muted">2022 — Present</div>
+              <ul class="muted" style="list-style: disc; padding-left: 1rem; margin-top: var(--space-3);">
+                <li>Led feature X serving Y monthly active users.</li>
+                <li>Improved performance score from 75 to 95.</li>
+                <li>Mentored 4 engineers; instituted code quality guidelines.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>Software Engineer — Company B</strong>
+              <div class="muted">2020 — 2022</div>
+              <ul class="muted" style="list-style: disc; padding-left: 1rem; margin-top: var(--space-3);">
+                <li>Built internal tooling used by 6 teams.</li>
+                <li>Cut page load times by 30% via code splitting.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-hd">
+          <h2 id="contact-title">Contact</h2>
           <p class="muted">Let’s build something great</p>
         </div>
 
-        <div class="contact-grid">
+        <div class="grid">
+          <!-- Contact info card -->
           <div class="card">
             <div class="card-body">
               <strong>Reach me</strong>
@@ -180,50 +352,29 @@
             </div>
           </div>
 
-          <form class="card" action="https://formspree.io/f/mwpnzoeo" method="POST">
-            <div class="card-body">
+          <!-- Contact form card -->
+          <div class="card">
+            <form class="card-body" action="https://formspree.io/f/mwpnzoeo" method="POST">
               <strong>Send a message</strong>
+
               <label class="muted" for="name">Name</label>
-              <input class="input" id="name" name="name" type="text" placeholder="Your Name" required>
+              <input id="name" name="name" type="text" placeholder="Your Name" required>
 
               <label class="muted" for="email">Email</label>
-              <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
 
               <label class="muted" for="message">Message</label>
-              <textarea class="input" id="message" name="message" placeholder="How can I help?" required></textarea>
+              <textarea id="message" name="message" placeholder="How can I help?" required></textarea>
 
-              <button class="btn btn-primary" type="submit">Send</button>
-            </div>
-          </form>
+              <button class="btn btn-primary" type="submit" style="margin-top: 12px;">Send</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container" style="display:flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
-      <p>&copy; <span id="year"></span> Orlando Lopez. All rights reserved.</p>
-      <div style="display:flex; gap:12px;">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Structured data (update values) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Your Name",
-    "url": "https://your-domain.example/",
-    "sameAs": [
-      "https://github.com/yourorly"
-    ],
-    "jobTitle": "Web Developer"
-  }
-  </script>
-
-  <script src="resources/scripts/main.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

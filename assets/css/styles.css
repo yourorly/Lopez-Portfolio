@@ -1,0 +1,599 @@
+/* =========================
+   Theme Variables
+   ========================= */
+:root {
+  /* Proto palette */
+  --clay-1: #D7BDB0; /* primary accent */
+  --clay-2: #E3D5CA;
+  --clay-3: #F5EBE1;
+  --clay-4: #D6CCC2; /* body bg */
+  --clay-5: #EDEEE9;
+
+  /* Lanyard Colors */
+  --lanyard-color-top: rgb(255, 0, 0);
+  --lanyard-color-bottom: rgb(0, 0, 0);
+
+  /* Theme */
+  --bg: var(--clay-4);
+  --bg-accent: var(--clay-3);
+  --badge-bg: var(--clay-5);
+  --text: #c2c2c2;
+  --muted: #2d2d2d;
+
+  /* Navigation */
+  --nav-h: 64px;
+
+  /* Brand */
+  --primary: var(--clay-1);
+  --primary-contrast: #0b1220;
+
+  /* Surfaces (light glass) */
+  --card-bg: rgba(255, 255, 255, 0.78);
+  --card-border: color-mix(in oklab, var(--clay-2) 55%, rgba(0,0,0,0.08));
+  --card-text: #1f2937;
+
+  /* Layout spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --radius: 12px;
+
+  /* Badge and lanyard behavior (read by JS) */
+  --pin-x: 85%;            /* 0%..100% horizontal position of pin */
+  --string-length: 240px;  /* Rest length (L0) */
+  --current-length: var(--string-length);
+  --angle: 0deg;
+
+  /* Lanyard visuals */
+  --lanyard-thickness: 4px;
+  --lanyard-split: 190px;
+
+  /* Where laces attach to the badge (percent across its width) */
+  --attach-left: 50%;
+  --attach-right: 50%;
+  --attach-offset-y: 18px;
+
+  /* Shadows */
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.22);
+  --shadow-card: 0 8px 18px rgba(0, 0, 0, 0.15);
+
+  /* Marquee */
+  --marquee-speed: 22s;
+}
+
+/* =========================
+   Base
+   ========================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  color: #1E293B;
+  background: var(--clay-4);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Containers and section headers */
+.container { width: min(1100px, 100%); margin: 0 auto; padding-inline: var(--space-4); }
+.section-hd { margin-bottom: var(--space-4); display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); }
+.section-hd h2 { margin: 0; font-size: clamp(1.3rem, 1rem + 1.2vw, 2rem); color: #0f172a; }
+.muted { color: var(--muted); }
+
+/* Grid and cards */
+.grid { display: grid; gap: var(--space-4); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+.card-body { padding: var(--space-5); color: var(--card-text); }
+.tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tag {
+  display: inline-block; font-size: 0.8rem; padding: 4px 10px;
+  border-radius: 999px; background: color-mix(in oklab, var(--clay-2) 22%, transparent);
+  color: #475569; border: 1px solid color-mix(in oklab, var(--clay-2) 55%, transparent);
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(148,163,184,0.25);
+  padding: 10px 16px; border-radius: 10px; font-weight: 600; background: rgba(2,6,23,0.65);
+  color: #e5e7eb; box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  transition: transform .12s ease, background .2s ease, border .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: var(--primary); color: var(--primary-contrast);
+  border-color: color-mix(in oklab, var(--primary) 40%, rgba(148,163,184,0.25));
+  box-shadow: 0 8px 20px color-mix(in oklab, var(--primary) 14%, transparent);
+}
+
+/* =========================
+   Navigation
+   ========================= */
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-h);
+  }
+
+  .brand {
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+  .brand:hover {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav-links a {
+    color: var(--card-text);
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+  .nav-links a:hover {
+    color: var(--primary);
+    background: color-mix(in oklab, var(--clay-2) 25%, transparent);
+    text-decoration: none;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .nav-toggle .bar {
+    font-weight: 100px;
+    font-size: 25px;
+  }
+
+  /* Mobile menu */
+  @media (max-width: 860px) {
+    .nav-links {
+      position: absolute;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--card-border);
+      transform-origin: top;
+      transform: scaleY(0);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .site-nav[data-open="true"] .nav-links {
+      transform: scaleY(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-toggle { display: inline-flex; }
+    .nav-links .btn { justify-self: start; }
+  }
+
+  section[id] {
+    scroll-margin-top: calc(var(--nav-h) + 12px);
+  }
+
+/* =========================
+   Resume
+   ========================= */
+  .contents-mid .cta-row {
+    margin-top: 15px;
+  }
+  .resume-btn-desktop {
+    align-items: center;
+    gap: 10px;
+  }
+
+
+  @media (max-width: 640px) {
+    .resume-btn-desktop {
+      margin-top: 130%;
+    }
+  }
+
+/* =========================
+   Stage / Hanging ID
+   ========================= */
+.main-content {
+  background: radial-gradient(circle, var(--clay-1) 0%, var(--clay-2) 50%, var(--clay-3) 100%);
+  width: 100%;
+  height: 100%;
+}
+.contents-mid{
+  align-self: center;
+  padding-left: 10%;
+  padding-top: 10%;
+  height: 100%;
+  width: 100%;
+}
+.stage { position: relative; min-height: 80vh; padding-top: var(--space-6); }
+.anchor { position: absolute; inset: 0; touch-action: none; pointer-events: none;}
+
+.pin {
+  position: absolute; top: 16px; left: var(--pin-x); transform: translateX(-50%);
+  width: 10px; height: 10px; background: #94a3b800; border-radius: 50%;
+}
+.cord {
+  position: absolute; width: var(--lanyard-thickness); height: 0; transform-origin: top center;
+  background: linear-gradient(to bottom, var(--lanyard-color-top), var(--lanyard-color-bottom));
+  border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04); z-index: 2; pointer-events: none;
+}
+.rig { position: absolute; top: 16px; left: var(--pin-x); transform: translateX(-50%); will-change: transform; z-index: 3; }
+.hanger { position: relative; transform-origin: top center; transform: rotate(var(--angle)); will-change: transform; }
+.string { display: none; }
+#id-badge{
+   pointer-events: auto;
+}
+
+#id-badge.badge {
+  position: absolute; top: calc(var(--current-length) - 4px); left: 50%; transform: translateX(-50%);
+  width: clamp(300px, 50vw, 300px); aspect-ratio: 7 / 8.2; background: var(--badge-bg); color: var(--text);
+  border-radius: var(--radius); border: 1px solid #e5e7eb; box-shadow: var(--shadow-soft);
+  overflow: hidden; cursor: grab; user-select: none; -webkit-user-drag: none; touch-action: none; z-index: 3;
+}
+.stage.dragging #id-badge.badge { cursor: grabbing; }
+.badge::before {
+  content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+  width: 54%; height: 10px; background: #f1f5f9; border-radius: 6px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+}
+.badge::after {
+  content: ""; position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+  width: 22px; height: 4px; background: #cbd5e1; border-radius: 2px;
+}
+.attach { position: absolute; top: var(--attach-offset-y); width: 0; height: 0; pointer-events: none; }
+.attach-left { left: var(--attach-left); } .attach-right { left: var(--attach-right); }
+
+.badge-content { position: relative; padding: 36px 16px 16px 16px; height: 100%; box-sizing: border-box; }
+.photo {
+  position: absolute; top: 52px; left: 50%; transform: translateX(-50%); width: 68%;
+  aspect-ratio: 1 / 1; background: linear-gradient(135deg, var(--clay-4), var(--clay-1));
+  border-radius: 10px; box-shadow: inset 0 0 0 2px color-mix(in oklab, var(--primary) 25%, transparent);
+  background-repeat: no-repeat; background-position: center; background-size: 2.3in;
+}
+.details {
+  position: absolute; left: 50%; transform: translateX(-50%); bottom: 18px; width: 80%;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+}
+.name { font-weight: 800; font-size: 1.05rem; color: #0f172a; }
+.role { font-size: 0.95rem; color: #334155; }
+.id-number { font-size: 0.82rem; color: #475569; }
+
+/* Phones: center the hanging ID */
+@media (max-width: 640px), (hover: none) and (pointer: coarse) {
+  :root { --pin-x: 50%; --lanyard-split: 48px; }
+  #id-badge.badge { width: clamp(260px, 80vw, 320px); }
+}
+
+/* =========================
+   Offerings (What I Offer)
+   ========================= */
+#offerings { padding-block: clamp(40px, 6vw, 84px); }
+.offer-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .offer-grid { grid-template-columns: 1fr; } }
+
+.offer-card {
+  position: relative; padding: var(--space-6); border-radius: var(--radius);
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.offer-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); border-color: color-mix(in oklab, var(--clay-2) 75%, rgba(0,0,0,0.12)); }
+.offer-icon {
+  width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--clay-1), var(--clay-2));
+  color: #0b1220; font-weight: 800; margin-bottom: var(--space-3);
+}
+.offer-title { margin: 0 0 var(--space-2); font-weight: 700; color: #0f172a; }
+.offer-text { margin: 0; color: #374151; }
+
+/* =========================
+   Projects (Sample Projects)
+   ========================= */
+#projects { padding-block: clamp(40px, 6vw, 84px); }
+#projects .card img {
+  width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover;
+}
+#projects .cta { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
+
+/* =========================
+   Marquee (Motion Showcase)
+   ========================= */
+.animation-portfolio { padding-block: clamp(40px, 6vw, 84px); }
+.marquee {
+  --fade: 80px;
+  position: relative; overflow: hidden; mask-image: linear-gradient(to right, transparent, black var(--fade), black calc(100% - var(--fade)), transparent);
+}
+.marquee-track {
+  display: flex; gap: var(--space-4);
+  animation: marquee var(--marquee-speed) linear infinite;
+  will-change: transform;
+}
+.marquee.paused .marquee-track { animation-play-state: paused; }
+.marquee-item { width: clamp(220px, 32vw, 360px); flex: 0 0 auto; overflow: hidden; }
+.marquee-item img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* relies on duplicated items */
+}
+
+/* =========================
+   Certificates
+   ========================= */
+#certificates { padding-block: clamp(40px, 6vw, 84px); }
+.cert-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .cert-grid { grid-template-columns: 1fr; } }
+
+.cert-card {
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.cert-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); border-color: color-mix(in oklab, var(--clay-2) 75%, rgba(0,0,0,0.12)); }
+.cert-media { position: relative; }
+.cert-media img { width: 100%; display: block; aspect-ratio: 16 / 11; object-fit: cover; }
+.cert-meta { padding: var(--space-4); color: var(--card-text); display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.cert-title { font-weight: 700; margin: 0; }
+.cert-org { color: #475569; font-size: .9rem; }
+
+/* Lightbox overlay */
+.lb-overlay {
+  position: fixed; inset: 0; display: none; place-items: center; background: rgba(0,0,0,.6);
+  z-index: 9999; padding: var(--space-4);
+}
+.lb-overlay.open { display: grid; }
+.lb-dialog {
+  background: #0b1220; border: 1px solid rgba(148,163,184,0.25); border-radius: var(--radius);
+  max-width: min(92vw, 1000px); width: 100%; box-shadow: var(--shadow-soft); overflow: hidden;
+}
+.lb-media { background: #0f172a; }
+.lb-media img { width: 100%; height: auto; display: block; }
+.lb-footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.lb-title { font-weight: 700; color: #e5e7eb; }
+.lb-close { border: none; background: #1f2937; color: #e5e7eb; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+
+/* =========================
+   Experience (Timeline)
+   ========================= */
+#experience { padding-block: clamp(40px, 6vw, 84px); }
+
+.timeline {
+  position: relative; margin: var(--space-6) 0; padding-left: 22px;
+}
+.timeline::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 9px; width: 2px; background: rgba(148,163,184,0.3);
+}
+.timeline-item { position: relative; margin-bottom: var(--space-6); }
+.timeline-dot {
+  position: absolute; left: 0; top: .2rem; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--primary); box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary) 18%, transparent);
+}
+.timeline-content {
+  margin-left: var(--space-6);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-card);
+  color: var(--card-text);
+}
+
+/* =========================
+   Reveal on scroll (utility)
+   ========================= */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.reveal-in { opacity: 1; transform: none; }
+
+/* ==========================
+    Contacts
+ ============================*/
+/* Contact section (scoped) */
+#contact {
+  padding-block: clamp(40px, 6vw, 84px);
+}
+
+/* Header */
+#contact .section-hd {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+#contact .section-hd h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  letter-spacing: -0.02em;
+}
+#contact .muted { color: var(--muted, #64748b); }
+
+/* Layout */
+#contact .grid {
+  display: grid;
+  gap: 20px;
+}
+@media (min-width: 800px) {
+  #contact .grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Cards */
+#contact .card {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius, 12px);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-card, 0 8px 18px rgba(0,0,0,0.15));
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+#contact .card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--card-text);
+}
+
+/* Tags */
+#contact .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#contact .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--clay-2) 22%, transparent);
+  color: #475569;
+  border: 1px solid color-mix(in oklab, var(--clay-2) 55%, transparent);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+/* Form controls */
+#contact form label {
+  font-size: 0.9rem;
+  color: var(--muted, #475569);
+}
+
+#contact input,
+#contact textarea {
+  width: 95%;
+  padding: 12px 14px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.6);
+  color: #0f172a;
+  outline: none;
+  transition: border .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: color-mix(in oklab, var(--muted, #64748b) 70%, transparent);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: color-mix(in oklab, var(--primary, #D7BDB0) 40%, var(--card-border));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary, #D7BDB0) 20%, transparent);
+}
+
+#contact textarea { min-height: 140px; resize: vertical; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.25));
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: var(--bg-elev, rgba(2,6,23,0.65));
+  color: #ffffff;
+  box-shadow: var(--shadow-1, 0 6px 14px rgba(0,0,0,0.12));
+  transition: transform .12s ease, background .2s ease, border .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--primary, #D7BDB0);
+  color: var(--primary-contrast, #0b1220);
+  border-color: color-mix(in oklab, var(--primary, #D7BDB0) 40%, var(--border, rgba(148,163,184,0.25)));
+  box-shadow: 0 8px 20px color-mix(in oklab, var(--primary, #D7BDB0) 14%, transparent);
+}
+
+/* Accessibility: focus-visible */
+#contact a.tag:focus-visible,
+#contact .btn:focus-visible,
+#contact input:focus-visible,
+#contact textarea:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary, #D7BDB0) 30%, transparent);
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  #contact .card-body { padding: 16px; }
+}
+
+/* Phones: center the hanging ID assembly */
+@media (max-width: 640px), (hover: none) and (pointer: coarse) {
+  :root {
+    --pin-x: 50%;          /* center the pin and whole assembly */
+    --lanyard-split: 48px; /* bring the two laces closer on small screens */
+  }
+
+  /* Optionally make the badge fit smaller devices more comfortably */
+  #id-badge.badge {
+    width: clamp(260px, 80vw, 300px);
+  }
+}
+
+/* =========================
+   Portfolio wrapper spacing
+   ========================= */
+#portfolio-content { position: relative; z-index: 1; padding: var(--space-10) 0 calc(var(--space-10) * 2); }
+
+/* Accessibility and motion */
+@media (prefers-reduced-motion: reduce) {
+  .hanger, .cord, .marquee-track, .reveal { transition: none !important; animation: none !important; }
+}
+
+/* Utilities */
+.hidden { display: none !important; }
+.center { text-align: center; }
